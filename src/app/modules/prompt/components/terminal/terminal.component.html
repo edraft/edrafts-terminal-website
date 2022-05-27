@@ -1,15 +1,25 @@
 <div class="terminal-wrapper">
     <div class="terminal">
-        <div class="prompt-wrapper">
+        <ng-container *ngFor="let response of terminalContent">
+            <div class="prompt-wrapper">
+                <div class="prompt">
+                    <span class="identifier">{{prompt}}</span>:<span class="path">{{path}}</span>$ {{response.command}}
+                </div>
+            </div>
+            <div class="response-wrapper">
+                <pre class="response">{{response.response}}</pre>
+            </div>
+        </ng-container>
+
+        <div class="active-prompt prompt-wrapper">
             <div class="prompt">
                 <span class="identifier">{{prompt}}</span>:<span class="path">{{path}}</span>$
             </div>
             <div class="input">
                 <form [formGroup]="commandForm" (ngSubmit)="submit()">
-                    <input type="text" class="active-input" formControlName="command">
+                    <input type="text" class="active-input" formControlName="command" autofocus>
                 </form>
             </div>
         </div>
-        <div class="response"></div>
     </div>
 </div>

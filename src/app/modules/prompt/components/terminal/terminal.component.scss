@@ -5,11 +5,13 @@
     width: 100%;
     background-color: $primaryBackgroundColor;
 
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     font-family: monospace;
 
     .terminal {
+        overflow-y: auto;
+        overflow-x: hidden;
         height: 100%;
         width: 100%;
 
@@ -27,18 +29,24 @@
                     color: $secondaryTextColor;
                 }
             }
+        }
+
+        .response-wrapper {
+            .response {
+                color: $primaryTextColor;
+            }
+        }
+
+        .active-prompt {
+            .input,
+            .input input {
+                width: 100%;
+            }
 
             .active-input {
                 border: none;
                 box-shadow: none;
                 background-color: $primaryBackgroundColor;
-
-                &:hover,
-                &:focus,
-                &:active {
-                    border: none;
-                    box-shadow: none;
-                }
             }
         }
 

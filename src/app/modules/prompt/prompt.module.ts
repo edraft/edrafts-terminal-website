@@ -5,13 +5,15 @@ import { PromptComponent } from './components/prompt/prompt.component';
 import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
 import { HelpCommandService } from './services/commands/help/help-command.service';
 import { TerminalComponent } from './components/terminal/terminal.component';
+import { AutoFocus } from './directives/auto-focus.directive';
 
 
 
 @NgModule({
   declarations: [
     PromptComponent,
-    TerminalComponent
+    TerminalComponent,
+    AutoFocus
   ],
   imports: [
     CommonModule,

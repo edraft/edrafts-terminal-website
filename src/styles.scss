@@ -34,4 +34,9 @@ h2 {
     .p-terminal-content-prompt {
         margin-right: 5px;
     }
+
+    .terminal-wrapper {
+        height: 100vh !important;
+        width: 100vw !important;
+    }
 }

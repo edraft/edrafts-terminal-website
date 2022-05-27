@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 // import { TerminalService } from 'primeng/terminal';
 import { ConfigService } from '../../../../services/config/config.service';
@@ -31,20 +31,19 @@ export class PromptComponent implements OnInit {
 
   ngOnInit(): void {
     this.prompt = `${this.translate.instant('prompt.visitor')}@${this.config.getConfig().host}`;
-    // this.terminal.commandHandler.subscribe(command => {
-    //   let found = true;
-    //   let response = '';
-    //   switch (command) {
-    //     case 'help':
-    //       this.helpCommand.run();
-    //       break;
-    //     default:
-    //       response = `${command}: ${this.translate.instant('prompt.command_not_found')}`;
-    //       found = false;
-    //       break;
-    //   }
-    //   this.terminal.sendResponse(response);
-    // });
+    this.terminal.commandHandler.subscribe(command => {
+      let found = true;
+      let response = '';
+      switch (command) {
+        case 'help':
+          this.helpCommand.run();
+          break;
+        default:
+          response = `${command}: ${this.translate.instant('prompt.command_not_found')}`;
+          found = false;
+          break;
+      }
+    });
     this.terminal.sendCommand('help');
   }
 
