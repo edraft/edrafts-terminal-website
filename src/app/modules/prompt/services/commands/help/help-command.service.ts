@@ -12,7 +12,7 @@ export class HelpCommandService {
   }
 
   run(): void {
-    console.log('CMD: run');
+    console.log('CMD: help');
     let help = `
     banner\t\t${this.translate.instant('prompt.commands.banner.help')}
     clear\t\t${this.translate.instant('prompt.commands.clear.help')}

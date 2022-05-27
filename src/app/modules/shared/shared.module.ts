@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { TerminalModule, TerminalService } from 'primeng/terminal';
 
@@ -9,15 +10,18 @@ import { TerminalModule, TerminalService } from 'primeng/terminal';
   declarations: [],
   imports: [
     CommonModule,
-    TerminalModule
+    TerminalModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     TerminalModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
-    TerminalService,
-    TranslateModule
+    TerminalService
   ]
 })
 export class SharedModule { }

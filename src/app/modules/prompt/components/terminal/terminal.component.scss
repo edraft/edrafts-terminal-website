@@ -1,0 +1,48 @@
+@import "../../../../../styles/constants.scss";
+
+.terminal-wrapper {
+    height: 200px;
+    width: 100%;
+    background-color: $primaryBackgroundColor;
+
+    font-size: 18px;
+    font-weight: 500;
+    font-family: monospace;
+
+    .terminal {
+        height: 100%;
+        width: 100%;
+
+        .prompt-wrapper {
+            display: flex;
+            color: $primaryTextColor;
+
+            .prompt {
+                margin-right: 5px;
+
+                .identifier {
+                    color: $importantTextColor;
+                }
+                .path {
+                    color: $secondaryTextColor;
+                }
+            }
+
+            .active-input {
+                border: none;
+                box-shadow: none;
+                background-color: $primaryBackgroundColor;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .response {
+        }
+    }
+}

@@ -4,12 +4,14 @@ import { SharedModule } from '../shared/shared.module';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
 import { HelpCommandService } from './services/commands/help/help-command.service';
+import { TerminalComponent } from './components/terminal/terminal.component';
 
 
 
 @NgModule({
   declarations: [
-    PromptComponent
+    PromptComponent,
+    TerminalComponent
   ],
   imports: [
     CommonModule,
