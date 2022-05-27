@@ -17,7 +17,6 @@ export class TerminalService {
   }
 
   sendResponse(command: string, response: string) {
-    console.log(response);
     this.responseHandler.emit({command, response});
   }
 
