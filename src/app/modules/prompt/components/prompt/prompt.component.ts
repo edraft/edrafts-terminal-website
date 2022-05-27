@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { TerminalService } from 'primeng/terminal';
-import { ConfigService } from 'src/app/services/config/config.service';
+import { ConfigService } from '../../../../services/config/config.service';
+import { HelpCommandService } from '../../services/commands/help/help-command.service';
 
 @Component({
   selector: 'app-prompt',
@@ -16,7 +17,8 @@ export class PromptComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private config: ConfigService,
-    private terminal: TerminalService
+    private terminal: TerminalService,
+    private helpCommand: HelpCommandService
   ) { }
 
   ngOnInit(): void {
@@ -25,12 +27,15 @@ export class PromptComponent implements OnInit {
     this.terminal.commandHandler.subscribe(command => {
       let response = '';
       switch (command) {
+        case 'help':
+          this.helpCommand.run();
+          break;
         default:
           response = `${command}: ${this.translate.instant('prompt.command_not_found')}`
           break;
       }
       this.terminal.sendResponse(response);
-  });
+    });
   }
 
 }

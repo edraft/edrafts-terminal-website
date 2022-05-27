@@ -25,6 +25,12 @@ h2 {
 }
 
 .prompt {
+    .p-terminal-prompt,
+    .p-terminal-command,
+    .p-terminal-response {
+        white-space: pre-wrap;
+    }
+
     .p-terminal-content-prompt {
         margin-right: 5px;
     }

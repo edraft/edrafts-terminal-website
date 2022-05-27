@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { HelpCommandService } from './services/commands/help/help-command.service';
 
 
 
@@ -14,6 +15,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     PromptRoutingModule,
     SharedModule
+  ],
+  providers: [
+    HelpCommandService
   ]
 })
 export class PromptModule { }

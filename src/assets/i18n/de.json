@@ -1,8 +1,24 @@
 {
-    "commands": {},
     "prompt": {
         "command_not_found": "Befehl nicht gefunden",
         "welcome_message": "Willkommen auf meinem web terminal\nFür eine Liste von verfügbaren Befehlen, tippe 'help'.",
-        "visitor": "besucher"
+        "visitor": "besucher",
+        "commands": {
+            "banner": {
+                "help": "Zeigt das Banner"
+            },
+            "clear": {
+                "help": "Räumt auf"
+            },
+            "help": {
+                "help": "Du siehst ja was passiert ist"
+            },
+            "history": {
+                "help": "Gibt die Befehlshistorie wieder"
+            },
+            "language": {
+                "help": "Setzt die Sprache"
+            }
+        }
     }
 }

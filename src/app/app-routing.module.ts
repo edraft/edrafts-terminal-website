@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'prompt', pathMatch: 'full' },
-  { path: 'prompt', loadChildren: () => import('./modules/terminal/prompt.module').then(m => m.PromptModule)},
+  { path: 'prompt', loadChildren: () => import('./modules/prompt/prompt.module').then(m => m.PromptModule)},
 ];
 
 @NgModule({
