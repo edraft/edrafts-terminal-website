@@ -1,0 +1,71 @@
+@import "./constants.scss";
+
+.btn {
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.p-menu {
+    background: none !important;
+    border: none !important;
+    width: auto !important;
+    border-radius: 0px !important;
+    padding: 0 !important;
+
+    .p-menuitem-link {
+        $distance: 10px;
+        padding: $distance 0px $distance $distance !important;
+        margin: 4px 0px 4px 6px !important;
+    }
+}
+
+.p-menu-overlay {
+    top: $headerHeight !important;
+}
+
+ui-menu .ui-menu-parent .ui-menu-child {
+    width: 400px; /* exagerated !! */
+}
+
+.p-toast-detail {
+    white-space: pre-line;
+}
+
+.p-datatable .p-sortable-column:focus {
+    box-shadow: none !important;
+}
+
+.p-password {
+    padding: 0px !important;
+}
+
+.p-paginator {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+p-table {
+    .p-datatable .p-datatable-header {
+        border: none !important;
+    }
+
+    .p-datatable .p-datatable-header,
+    .p-datatable .p-datatable-tbody > tr,
+    .p-datatable .p-datatable-thead > tr > th {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+}
+
+.pi-sort-alt:before {
+    content: "\e915" !important;
+}
+
+.pi-sort-amount-up-alt:before {
+    content: "\e914" !important;
+}
+
+.pi-sort-amount-down:before {
+    content: "\e913" !important;
+}

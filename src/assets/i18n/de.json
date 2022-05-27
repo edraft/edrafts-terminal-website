@@ -1,0 +1,8 @@
+{
+    "commands": {},
+    "prompt": {
+        "command_not_found": "Befehl nicht gefunden",
+        "welcome_message": "Willkommen auf meinem web terminal\nFür eine Liste von verfügbaren Befehlen, tippe 'help'.",
+        "visitor": "besucher"
+    }
+}
