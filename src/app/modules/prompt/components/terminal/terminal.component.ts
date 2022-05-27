@@ -18,9 +18,7 @@ export class TerminalComponent implements OnInit {
     command: [''],
   });
 
-  terminalContent: TerminalContentElement[] = [
-    { command: 'test', response: 'Test1234' }
-  ];
+  terminalContent: TerminalContentElement[] = [];
 
   constructor(
     private terminalService: TerminalService,

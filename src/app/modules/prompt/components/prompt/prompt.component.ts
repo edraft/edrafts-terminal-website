@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 // import { TerminalService } from 'primeng/terminal';
 import { ConfigService } from '../../../../services/config/config.service';
@@ -13,7 +13,7 @@ import { TerminalService } from '../../services/terminal.service';
     '(document:keydown)': 'handleKeyboardEvent($event)'
   }
 })
-export class PromptComponent implements OnInit {
+export class PromptComponent implements OnInit, AfterViewInit {
 
   welcomeMessage: string = '';
   prompt: string = 'unkown';
@@ -44,6 +44,9 @@ export class PromptComponent implements OnInit {
           break;
       }
     });
+  }
+
+  ngAfterViewInit(): void {
     this.terminal.sendCommand('help');
   }
 
