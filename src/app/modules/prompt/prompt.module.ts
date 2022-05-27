@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { PromptComponent } from './components/prompt/prompt.component';
-import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
-import { HelpCommandService } from './services/commands/help/help-command.service';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { AutoFocus } from './directives/auto-focus.directive';
+import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
+import { HelpCommandService } from './services/commands/help/help-command.service';
+import { ClickFocusDirective } from './directives/click-focus.directive';
 
 
 
@@ -13,7 +14,8 @@ import { AutoFocus } from './directives/auto-focus.directive';
   declarations: [
     PromptComponent,
     TerminalComponent,
-    AutoFocus
+    AutoFocus,
+    ClickFocusDirective,
   ],
   imports: [
     CommonModule,

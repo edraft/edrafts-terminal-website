@@ -5,7 +5,7 @@
     width: 100%;
     background-color: $primaryBackgroundColor;
 
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 500;
     font-family: monospace;
 
@@ -21,8 +21,10 @@
 
             .prompt {
                 margin-right: 5px;
+                height: 20px;
 
                 .identifier {
+                    height: 100%;
                     color: $importantTextColor;
                 }
                 .path {
@@ -38,19 +40,43 @@
         }
 
         .active-prompt {
-            .input,
-            .input input {
-                width: 100%;
-            }
+            display: flex;
 
-            .active-input {
-                border: none;
-                box-shadow: none;
-                background-color: $primaryBackgroundColor;
+            .prompt-form {
+                width: 100%;
+                .input-wrapper {
+                    width: 100%;
+                    input {
+                        width: 100%;
+
+                        height: 20px;
+                        min-height: 20px;
+
+                        border: none;
+                        box-shadow: none;
+                        outline: none;
+
+                        color: $primaryTextColor;
+                        caret-color: $primaryTextColor;
+                        background-color: $primaryBackgroundColor;
+
+                        font-size: 1rem !important;
+                        font-weight: 500 !important;
+                        font-family: monospace !important;
+
+                        &:active,
+                        &:focus {
+                            border: none;
+                            box-shadow: none;
+                            outline: none;
+                        }
+                    }
+                }
             }
         }
 
         .response {
+            margin: 0px;
         }
     }
 }

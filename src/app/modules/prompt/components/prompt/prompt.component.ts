@@ -39,7 +39,7 @@ export class PromptComponent implements OnInit {
           this.helpCommand.run();
           break;
         default:
-          response = `${command}: ${this.translate.instant('prompt.command_not_found')}`;
+          this.terminal.sendResponse(command, `${command}: ${this.translate.instant('prompt.command_not_found')}`);
           found = false;
           break;
       }
