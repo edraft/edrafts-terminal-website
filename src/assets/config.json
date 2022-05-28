@@ -1,4 +1,9 @@
 {
     "host": "localhost",
-    "defaultLanguage": "de"
+    "defaultLanguage": "de",
+    "birthdate": "14.10.2000",
+    "gitea": "https://git.sh-edraft.de/edraft",
+    "github": "https://github.com/edraft",
+    "discord": "https://discord.gg/Bp4qHUh",
+    "mail": "sven.heidemann@sh-edraft.de"
 }

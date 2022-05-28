@@ -27,9 +27,10 @@ export class TerminalComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCommandForm();
-    this.terminalService.responseHandler.subscribe(response => {
-      this.terminalContent.push(response);
-    })
+
+    this.terminalService.terminalContent$.subscribe(terminalContent => {
+      this.terminalContent = terminalContent
+    });
   }
 
   initCommandForm(): void {

@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 // import { TerminalService } from 'primeng/terminal';
 import { ConfigService } from '../../../../services/config/config.service';
+import { BannerCommandService } from '../../services/commands/banner/banner-command.service';
+import { ClearCommandService } from '../../services/commands/clear/clear-command.service';
 import { HelpCommandService } from '../../services/commands/help/help-command.service';
 import { TerminalService } from '../../services/terminal.service';
 
@@ -26,15 +28,22 @@ export class PromptComponent implements OnInit, AfterViewInit {
     private translate: TranslateService,
     private config: ConfigService,
     private terminal: TerminalService,
-    private helpCommand: HelpCommandService
+    private helpCommand: HelpCommandService,
+    private clear: ClearCommandService,
+    private banner: BannerCommandService
   ) { }
 
   ngOnInit(): void {
     this.prompt = `${this.translate.instant('prompt.visitor')}@${this.config.getConfig().host}`;
     this.terminal.commandHandler.subscribe(command => {
       let found = true;
-      let response = '';
       switch (command) {
+        case 'banner':
+          this.banner.banner();
+          break;
+        case 'clear':
+          this.clear.clear();
+          break;
         case 'help':
           this.helpCommand.run();
           break;
@@ -47,7 +56,7 @@ export class PromptComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.terminal.sendCommand('help');
+    this.terminal.sendCommand('banner');
   }
 
   addCommandToHistory(command: string) {

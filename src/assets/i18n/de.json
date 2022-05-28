@@ -5,7 +5,14 @@
         "visitor": "besucher",
         "commands": {
             "banner": {
-                "help": "Zeigt das Banner"
+                "help": "Zeigt das Banner",
+                "name": "Name",
+                "age": "Alter",
+                "job": "Beruf",
+                "job_value": "Anwendungsentwickler",
+                "good": "Gut",
+                "very_good": "Sehr gut",
+                "bad": "Schlecht"
             },
             "clear": {
                 "help": "Räumt auf"

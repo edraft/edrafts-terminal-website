@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { TerminalContentElement as TerminalHistoryElement } from '../model/terminal-content-element';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { TerminalContentElement as TerminalHistoryElement } from '../model/termi
 export class TerminalService {
 
   commandHandler: EventEmitter<string> = new EventEmitter<string>();
-  responseHandler: EventEmitter<TerminalHistoryElement> = new EventEmitter<TerminalHistoryElement>();
+  terminalContent$: BehaviorSubject<TerminalHistoryElement[]> = new BehaviorSubject<TerminalHistoryElement[]>([]);
 
   constructor() { }
 
@@ -17,10 +17,10 @@ export class TerminalService {
   }
 
   sendResponse(command: string, response: string) {
-    this.responseHandler.emit({command, response});
+    this.terminalContent$.value.push({command, response});
   }
 
-  print(text: string) {
-    this.responseHandler.emit({command: '', response: text});
+  clear() {
+    this.terminalContent$.next([]);
   }
 }
