@@ -34,7 +34,7 @@ export class BannerCommandService {
     <span class="important-text">\`--'  \_~-,</span>          <span class="important-text">Gitea</span>: <a href="${this.config.getConfig().gitea}" target="_blank">${this.config.getConfig().gitea}</a>
                         <span class="important-text">Github</span>: <a href="${this.config.getConfig().github}" target="_blank">${this.config.getConfig().github}</a>
                         <span class="important-text">Discord</span>: <a href="${this.config.getConfig().discord}" target="_blank">${this.config.getConfig().discord}</a>
-                        <span class="important-text">Mail</span>: <a href="${this.config.getConfig().mail}" target="_blank">mailto:${this.config.getConfig().mail}</a>
+                        <span class="important-text">Mail</span>: <a href="${this.config.getConfig().mail}" target="_blank">${this.config.getConfig().mail}</a>
     `;
     this.terminalService.sendResponse('banner', banner);
   }

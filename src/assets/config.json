@@ -1,15 +1,6 @@
 {
     "startupCommands": [
-        "banner",
-        "banner",
-        "banner",
-        "banner",
-        "banner",
-        "banner",
-        "banner",
-        "clear",
-        "banner",
-        "history"
+        "banner"
     ],
     "host": "localhost",
     "defaultLanguage": "de",
