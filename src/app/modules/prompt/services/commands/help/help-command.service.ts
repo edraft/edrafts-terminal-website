@@ -11,8 +11,7 @@ export class HelpCommandService {
   ) {
   }
 
-  run(): void {
-    console.log('CMD: help');
+  help(): void {
     let help = `
     banner      ${this.translate.instant('prompt.commands.banner.help')}
     clear       ${this.translate.instant('prompt.commands.clear.help')}
@@ -22,6 +21,4 @@ export class HelpCommandService {
     `;
     this.terminal.sendResponse('help', help);
   }
-
-  help(): void { }
 }

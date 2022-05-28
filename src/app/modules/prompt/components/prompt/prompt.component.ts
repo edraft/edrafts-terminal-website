@@ -5,6 +5,7 @@ import { ConfigService } from '../../../../services/config/config.service';
 import { BannerCommandService } from '../../services/commands/banner/banner-command.service';
 import { ClearCommandService } from '../../services/commands/clear/clear-command.service';
 import { HelpCommandService } from '../../services/commands/help/help-command.service';
+import { HistoryCommandService } from '../../services/commands/history/history-command.service';
 import { TerminalService } from '../../services/terminal.service';
 
 @Component({
@@ -20,8 +21,6 @@ export class PromptComponent implements OnInit, AfterViewInit {
   welcomeMessage: string = '';
   prompt: string = 'unkown';
   path: string = '~';
-
-  history: string[] = [];
   historyIndex = 0;
 
   constructor(
@@ -30,7 +29,8 @@ export class PromptComponent implements OnInit, AfterViewInit {
     private terminal: TerminalService,
     private helpCommand: HelpCommandService,
     private clear: ClearCommandService,
-    private banner: BannerCommandService
+    private banner: BannerCommandService,
+    private history: HistoryCommandService
   ) { }
 
   ngOnInit(): void {
@@ -45,8 +45,11 @@ export class PromptComponent implements OnInit, AfterViewInit {
           this.clear.clear();
           break;
         case 'help':
-          this.helpCommand.run();
+          this.helpCommand.help();
           break;
+          case 'history':
+            this.history.history();
+            break;
         default:
           this.terminal.sendResponse(command, `${command}: ${this.translate.instant('prompt.command_not_found')}`);
           found = false;
@@ -56,32 +59,29 @@ export class PromptComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.terminal.sendCommand('banner');
-  }
-
-  addCommandToHistory(command: string) {
-    this.history.push(command);
-    this.historyIndex++;
+    this.config.getConfig().startupCommands.forEach(command =>  {
+      this.terminal.sendCommand(command);
+    });
   }
 
   handleKeyboardEvent(event: KeyboardEvent) {
     const key = event.key;
-    switch (key) {
-      case 'ArrowUp':
-        if (this.historyIndex <= 0) {
-          return;
-        }
-        this.historyIndex--;
-        console.log(this.historyIndex, this.history[this.historyIndex]);
-        break;
-      case 'ArrowDown':
-        if (this.historyIndex >= this.history.length - 1) {
-          return;
-        }
-        this.historyIndex++;
-        console.log(this.historyIndex, this.history[this.historyIndex]);
-        break;
-    }
+    // switch (key) {
+    //   case 'ArrowUp':
+    //     if (this.historyIndex <= 0) {
+    //       return;
+    //     }
+    //     this.historyIndex--;
+    //     console.log(this.historyIndex, this.history[this.historyIndex]);
+    //     break;
+    //   case 'ArrowDown':
+    //     if (this.historyIndex >= this.history.length - 1) {
+    //       return;
+    //     }
+    //     this.historyIndex++;
+    //     console.log(this.historyIndex, this.history[this.historyIndex]);
+    //     break;
+    // }
   }
 
 }

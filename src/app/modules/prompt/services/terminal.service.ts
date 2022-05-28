@@ -9,10 +9,12 @@ export class TerminalService {
 
   commandHandler: EventEmitter<string> = new EventEmitter<string>();
   terminalContent$: BehaviorSubject<TerminalHistoryElement[]> = new BehaviorSubject<TerminalHistoryElement[]>([]);
+  terminalHistory: string[] = [];
 
   constructor() { }
 
   sendCommand(command: string) {
+    this.terminalHistory.push(command);
     this.commandHandler.emit(command);
   }
 
