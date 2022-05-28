@@ -22,6 +22,10 @@ export class TerminalService {
     this.terminalContent$.value.push({command, response});
   }
 
+  sendMessage(message: string) {
+    this.terminalContent$.value[this.terminalContent$.value.length - 1].message = message;
+  }
+
   clear() {
     this.terminalContent$.next([]);
   }

@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-// import { TerminalService } from 'primeng/terminal';
 import { ConfigService } from '../../../../services/config/config.service';
 import { BannerCommandService } from '../../services/commands/banner/banner-command.service';
 import { ClearCommandService } from '../../services/commands/clear/clear-command.service';
@@ -59,9 +58,12 @@ export class PromptComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.config.getConfig().startupCommands.forEach(command =>  {
+    let commands = this.config.getConfig().startupCommands;
+    for (let index = 0; index < commands.length; index++) {
+      const command = commands[index];
       this.terminal.sendCommand(command);
-    });
+      this.terminal.sendMessage(this.translate.instant('prompt.welcome_message'));
+    }
   }
 
   handleKeyboardEvent(event: KeyboardEvent) {
