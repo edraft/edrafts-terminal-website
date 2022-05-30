@@ -39,6 +39,7 @@ export class TerminalComponent implements OnInit {
     });
     this.host = this.config.getConfig().host;
     this.terminal.commandHandler.subscribe(command => {
+      this.historyIndex = this.terminal.terminalHistory$.value.length;
       switch (command.command) {
         case 'clear':
           this.terminal.clear();
@@ -74,20 +75,30 @@ export class TerminalComponent implements OnInit {
     const history = this.terminal.terminalHistory$.value;
     switch (key) {
       case 'ArrowUp':
-        if (this.historyIndex <= 0) {
+        if (this.historyIndex < 0) {
           return;
         }
+
+        if (this.historyIndex - 1 < 0) {
+          return;
+        }
+
         this.historyIndex--;
-        this.commandForm.controls['command'].setValue(history[this.historyIndex].command);
         break;
       case 'ArrowDown':
-        if (this.historyIndex >= history.length - 1) {
+        if (this.historyIndex > history.length - 1) {
           return;
         }
+
+        if (this.historyIndex + 1 > history.length - 1) {
+          return;
+        }
+
         this.historyIndex++;
-        this.commandForm.controls['command'].setValue(history[this.historyIndex].command);
         break;
     }
+    const value = `${history[this.historyIndex].command} ${history[this.historyIndex].values}`
+    this.commandForm.controls['command'].setValue(value);
   }
 
 }
