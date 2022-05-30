@@ -10,11 +10,15 @@
                     </div>
                 </div>
                 <div class="response-wrapper">
-                    <app-banner *ngIf="command.command === 'banner'" class="response"></app-banner>
-                    <app-help *ngIf="command.command === 'help'" class="response"></app-help>
-                    <app-history *ngIf="command.command === 'history'" class="response"></app-history>
-                    <app-language *ngIf="command.command === 'language'" class="response" [values]="command.values">
-                    </app-language>
+                    <ng-container [ngSwitch]="command.command">
+                        <app-banner *ngSwitchCase="'banner'" class="response"></app-banner>
+                        <app-help *ngSwitchCase="'help'" class="response"></app-help>
+                        <app-history *ngSwitchCase="'history'" class="response"></app-history>
+                        <app-language *ngSwitchCase="'language'" class="response" [values]="command.values"></app-language>
+                        <div *ngSwitchDefault class="response">
+                            <span class="error-message">{{'prompt.command_not_found' | translate: { command: command.command} }}</span>
+                        </div>
+                    </ng-container>
                     <div *ngIf="index === 0" class="response">
                         <span>{{'prompt.welcome_message' | translate}}</span>
                     </div>

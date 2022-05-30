@@ -7,7 +7,10 @@ import { TerminalService } from '../../services/terminal.service';
 @Component({
   selector: 'app-terminal',
   templateUrl: './terminal.component.html',
-  styleUrls: ['./terminal.component.scss']
+  styleUrls: ['./terminal.component.scss'],
+  host: {
+    '(document:keydown)': 'handleKeyboardEvent($event)'
+  }
 })
 export class TerminalComponent implements OnInit {
 
@@ -32,7 +35,6 @@ export class TerminalComponent implements OnInit {
     this.initCommandForm();
 
     this.terminal.terminalHistory$.subscribe(terminal => {
-      console.log('changes',terminal);
       this.terminalContent = terminal;
     });
     this.host = this.config.getConfig().host;
@@ -40,9 +42,6 @@ export class TerminalComponent implements OnInit {
       switch (command.command) {
         case 'clear':
           this.terminal.clear();
-          break;
-        default:
-          // this.terminal.sendError(command.command, 'prompt.command_not_found');
           break;
       }
     });
@@ -72,22 +71,23 @@ export class TerminalComponent implements OnInit {
 
   handleKeyboardEvent(event: KeyboardEvent) {
     const key = event.key;
-    // switch (key) {
-    //   case 'ArrowUp':
-    //     if (this.historyIndex <= 0) {
-    //       return;
-    //     }
-    //     this.historyIndex--;
-    //     console.log(this.historyIndex, this.history[this.historyIndex]);
-    //     break;
-    //   case 'ArrowDown':
-    //     if (this.historyIndex >= this.history.length - 1) {
-    //       return;
-    //     }
-    //     this.historyIndex++;
-    //     console.log(this.historyIndex, this.history[this.historyIndex]);
-    //     break;
-    // }
+    const history = this.terminal.terminalHistory$.value;
+    switch (key) {
+      case 'ArrowUp':
+        if (this.historyIndex <= 0) {
+          return;
+        }
+        this.historyIndex--;
+        this.commandForm.controls['command'].setValue(history[this.historyIndex].command);
+        break;
+      case 'ArrowDown':
+        if (this.historyIndex >= history.length - 1) {
+          return;
+        }
+        this.historyIndex++;
+        this.commandForm.controls['command'].setValue(history[this.historyIndex].command);
+        break;
+    }
   }
 
 }

@@ -25,7 +25,6 @@ export class TerminalService {
     let commandModel = { command, values, response: '' };
     const list = Object.assign([], this.terminalHistory$.value);
     list.push(commandModel);
-    console.log(list);
     this.terminalHistory$.next(list);
     this.commandHandler.emit(commandModel);
   }
