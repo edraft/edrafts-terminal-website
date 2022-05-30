@@ -26,12 +26,12 @@ export class BannerCommandService {
     <span class="important-text">        ((</span>          <span class="important-text">${this.translate.instant('prompt.commands.banner.age')}</span>: ${age}
     <span class="important-text">        ( \`)</span>        <span class="important-text">${this.translate.instant('prompt.commands.banner.job')}</span>: ${this.translate.instant('prompt.commands.banner.job_value')}
     <span class="important-text">        ; / ,</span>       <span class="important-text">Python</span></span>: ${this.translate.instant('prompt.commands.banner.very_good')}
-    <span class="important-text">       /  \/</span>         <span class="important-text">Angular</span>: ${this.translate.instant('prompt.commands.banner.good')}
+    <span class="important-text">       /  \\/</span>        <span class="important-text">Angular</span>: ${this.translate.instant('prompt.commands.banner.good')}
     <span class="important-text">      /  |</span>          <span class="important-text">.NET</span>: ${this.translate.instant('prompt.commands.banner.good')}
     <span class="important-text">     /  ~/</span>          <span class="important-text">Linux</span>: ${this.translate.instant('prompt.commands.banner.very_good')}
     <span class="important-text">    / )  )</span>          <span class="important-text">Windows</span>: ${this.translate.instant('prompt.commands.banner.very_good')}
     <span class="important-text">___// | /</span>           <span class="important-text">Mac</span>: ${this.translate.instant('prompt.commands.banner.bad')}
-    <span class="important-text">\`--'  \_~-,</span>          <span class="important-text">Gitea</span>: <a href="${this.config.getConfig().gitea}" target="_blank">${this.config.getConfig().gitea}</a>
+    <span class="important-text">\`--'  \\_~-,</span>         <span class="important-text">Gitea</span>: <a href="${this.config.getConfig().gitea}" target="_blank">${this.config.getConfig().gitea}</a>
                         <span class="important-text">Github</span>: <a href="${this.config.getConfig().github}" target="_blank">${this.config.getConfig().github}</a>
                         <span class="important-text">Discord</span>: <a href="${this.config.getConfig().discord}" target="_blank">${this.config.getConfig().discord}</a>
                         <span class="important-text">Mail</span>: <a href="${this.config.getConfig().mail}" target="_blank">${this.config.getConfig().mail}</a>
