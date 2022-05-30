@@ -51,5 +51,24 @@ h2 {
         a {
             color: $primaryTextColor;
         }
+        .terminal {
+            .prompt-wrapper {
+                .prompt {
+                    .identifier {
+                    }
+
+                    .path {
+                    }
+                }
+            }
+
+            .response-wrapper {
+                .response {
+                    .error-message {
+                        color: $primaryErrorColor !important;
+                    }
+                }
+            }
+        }
     }
 }

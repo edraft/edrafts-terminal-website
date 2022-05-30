@@ -36,10 +36,10 @@
         .response-wrapper {
             .response {
                 color: $primaryTextColor;
-            }
 
-            .error-message {
-                color: $primaryErrorColor !important;
+                .error-message {
+                    color: $primaryErrorColor !important;
+                }
             }
         }
 

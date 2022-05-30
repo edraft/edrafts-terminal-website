@@ -4,7 +4,8 @@
         "not-found",
         "help",
         "language en",
-        "history"
+        "history",
+        "language"
     ],
     "languages": [
         "de",

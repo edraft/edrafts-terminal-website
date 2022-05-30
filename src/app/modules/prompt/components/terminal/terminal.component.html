@@ -11,6 +11,8 @@
                 <app-help *ngIf="command.command === 'help'" class="response"></app-help>
                 <app-history *ngIf="command.command === 'history'" class="response"></app-history>
                 <app-language *ngIf="command.command === 'language'" class="response" [values]="command.values"></app-language>
+
+                <pre class="response" [innerHTML]="command.response"></pre>
             </div>
         </ng-container>
 

@@ -1,3 +1,4 @@
 <pre *ngIf="lang != ''">
     {{'prompt.commands.language.switched' | translate: { lang: lang } }}
 </pre>
+<pre *ngIf="lang === ''" class="error-message">{{'prompt.commands.language.missing_value' | translate}}</pre>
