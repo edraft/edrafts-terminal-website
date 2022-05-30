@@ -1,7 +1,7 @@
 {
     "prompt": {
         "command_not_found": "{{command}}: Command not found",
-        "welcome_message": "Welcome to my web terminal.\nFor a list of available commands, type 'help'.\n\n",
+        "welcome_message": "Welcome to my web terminal.\nFor a list of available commands, type 'help'.",
         "visitor": "visitor",
         "commands": {
             "banner": {

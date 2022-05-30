@@ -1,25 +1,31 @@
 <div class="prompt">
     <div class="terminal-wrapper" appClickFocus>
         <div class="terminal">
-            <ng-container *ngFor="let command of terminalContent">
+            <ng-container *ngFor="let command of terminalContent; let index = index">
                 <div class="prompt-wrapper">
                     <div class="prompt">
-                        <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>:<span
-                            class="path">{{path}}</span>$ {{command.command}} {{command.values}}
+                        <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>
+                        <span>:</span>
+                        <span class="path">{{path}}</span>$ {{command.command}} {{command.values}}
                     </div>
                 </div>
                 <div class="response-wrapper">
                     <app-banner *ngIf="command.command === 'banner'" class="response"></app-banner>
                     <app-help *ngIf="command.command === 'help'" class="response"></app-help>
                     <app-history *ngIf="command.command === 'history'" class="response"></app-history>
-                    <app-language *ngIf="command.command === 'language'" class="response" [values]="command.values"></app-language>
+                    <app-language *ngIf="command.command === 'language'" class="response" [values]="command.values">
+                    </app-language>
+                    <div *ngIf="index === 0" class="response">
+                        <span>{{'prompt.welcome_message' | translate}}</span>
+                    </div>
                 </div>
             </ng-container>
 
             <div class="active-prompt prompt-wrapper">
                 <div class="prompt">
-                    <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>:<span
-                        class="path">{{path}}</span>$
+                    <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>
+                    <span>:</span>
+                    <span class="path">{{path}}</span>$
                 </div>
                 <div class="prompt-form">
                     <form [formGroup]="commandForm" (ngSubmit)="submit()">
