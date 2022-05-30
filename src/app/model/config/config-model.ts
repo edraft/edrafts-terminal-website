@@ -1,6 +1,8 @@
 export interface ConfigModel {
+    startupCommandsBeforePrompt: string[];
     startupCommands: string[];
     languages: string[];
+    uname: string;
     host: string;
     defaultLanguage: string;
     birthdate: string;

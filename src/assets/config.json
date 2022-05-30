@@ -1,6 +1,10 @@
 {
-    "startupCommands": [
+    "startupCommandsBeforePrompt": [
+        "uname",
         "banner",
+        "welcome"
+    ],
+    "startupCommands": [
         "not-found",
         "help",
         "history",
@@ -11,6 +15,7 @@
         "de",
         "en"
     ],
+    "uname": "Website localhost 1.0.0-42-web #1 SMP Angular 13.3.0 (2022-30-05) x86_64",
     "host": "localhost",
     "defaultLanguage": "de",
     "birthdate": "14.10.2000",

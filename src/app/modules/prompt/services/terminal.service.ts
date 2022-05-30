@@ -12,7 +12,7 @@ export class TerminalService {
 
   constructor() { }
 
-  sendCommand(commandString: string) {
+  sendCommand(commandString: string, hidePrompt: boolean = false) {
     let command: string = commandString;
     let values: string[] = [];
 
@@ -22,7 +22,7 @@ export class TerminalService {
       values.shift();
     }
 
-    let commandModel = { command, values, response: '' };
+    let commandModel = { command, values, response: '', hidePrompt };
     const list = Object.assign([], this.terminalHistory$.value);
     list.push(commandModel);
     this.terminalHistory$.next(list);

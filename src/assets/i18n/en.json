@@ -1,7 +1,6 @@
 {
     "prompt": {
         "command_not_found": "{{command}}: Command not found",
-        "welcome_message": "Welcome to my web terminal.\nFor a list of available commands, type 'help'.",
         "visitor": "visitor",
         "commands": {
             "banner": {
@@ -28,6 +27,9 @@
                 "missing_value": "Language must be given!",
                 "not_found": "Language not found!",
                 "switched": "Generating locales (this might take a while)...\n{{lang}}.UTF-8... done\nGeneration complete."
+            },
+            "welcome": {
+                "message": "Welcome to my web terminal.\nFor a list of available commands, type 'help'."
             }
         }
     }

@@ -1,7 +1,6 @@
 {
     "prompt": {
         "command_not_found": "{{command}}: Befehl nicht gefunden",
-        "welcome_message": "Willkommen auf meinem web terminal.\nFür eine Liste von verfügbaren Befehlen, tippe 'help'.",
         "visitor": "besucher",
         "commands": {
             "banner": {
@@ -28,6 +27,9 @@
                 "missing_value": "Es muss eine Sprache gegeben werden!",
                 "not_found": "Die Sprache konnte nicht gefunden werden!",
                 "switched": "Locales werden generiert (dies kann eine Weile dauern)...\n{{lang}}.UTF-8... fertig\nGenerierung abgeschlossen."
+            },
+            "welcome": {
+                "message": "Willkommen auf meinem web terminal.\nFür eine Liste von verfügbaren Befehlen, tippe 'help'."
             }
         }
     }

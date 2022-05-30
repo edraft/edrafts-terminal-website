@@ -9,6 +9,8 @@ import { TerminalComponent } from './components/terminal/terminal.component';
 import { AutoFocus } from './directives/auto-focus.directive';
 import { ClickFocusDirective } from './directives/click-focus.directive';
 import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
+import { UnameComponent } from './components/commands/uname/uname.component';
+import { WelcomeComponent } from './components/commands/welcome/welcome.component';
 
 
 
@@ -21,6 +23,8 @@ import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.m
     LanguageComponent,
     HelpComponent,
     HistoryComponent,
+    UnameComponent,
+    WelcomeComponent,
   ],
   imports: [
     CommonModule,

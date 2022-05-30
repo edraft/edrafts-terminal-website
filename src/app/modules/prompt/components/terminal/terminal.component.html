@@ -1,9 +1,9 @@
 <div class="prompt">
     <div class="terminal-wrapper" appClickFocus>
         <div class="terminal">
-            <ng-container *ngFor="let command of terminalContent; let index = index">
+            <ng-container *ngFor="let command of terminalContent">
                 <div class="prompt-wrapper">
-                    <div class="prompt">
+                    <div class="prompt" *ngIf="!command.hidePrompt">
                         <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>
                         <span>:</span>
                         <span class="path">{{path}}</span>$ {{command.command}} {{command.values}}
@@ -15,13 +15,12 @@
                         <app-help *ngSwitchCase="'help'" class="response"></app-help>
                         <app-history *ngSwitchCase="'history'" class="response"></app-history>
                         <app-language *ngSwitchCase="'language'" class="response" [values]="command.values"></app-language>
+                        <app-uname *ngSwitchCase="'uname'" class="response"></app-uname>
+                        <app-welcome *ngSwitchCase="'welcome'" class="response"></app-welcome>
                         <div *ngSwitchDefault class="response">
                             <span class="error-message">{{'prompt.command_not_found' | translate: { command: command.command} }}</span>
                         </div>
                     </ng-container>
-                    <div *ngIf="index === 0" class="response">
-                        <span>{{'prompt.welcome_message' | translate}}</span>
-                    </div>
                 </div>
             </ng-container>
 
