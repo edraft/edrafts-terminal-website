@@ -9,7 +9,7 @@
             <div class="response-wrapper">
                 <pre *ngIf="response.response" class="response" [innerHTML]="response.response | translate"></pre>
                 <pre *ngIf="response.message" class="response" [innerHTML]="response.message | translate"></pre>
-                <pre *ngIf="response.errorMessage" class="response error-message" [innerHTML]="response.errorMessage | translate"></pre>
+                <pre *ngIf="response.errorMessage" class="response error-message" [innerHTML]="response.errorMessage | translate: {command: response.command}"></pre>
             </div>
         </ng-container>
 

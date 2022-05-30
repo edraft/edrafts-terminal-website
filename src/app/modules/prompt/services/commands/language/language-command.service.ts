@@ -20,14 +20,12 @@ export class LanguageCommandService {
       return;
     }
     
-    console.log(this.translate.getLangs());
-    // if (!this.translate.getLangs().includes(language)) {
-    //   this.terminal.sendError('language', this.translate.instant('prompt.commands.language.not_found'));
-    //   return;
-    // }
+    if (!this.translate.getLangs().includes(language)) {
+      this.terminal.sendError('language', this.translate.instant('prompt.commands.language.not_found'));
+      return;
+    }
     this.translate.use(language);
     this.translate.get('primeng').subscribe(res => this.primeNGConfig.setTranslation(res));
-    // console.log(this.translate.);
 
     let response = `
     ${language}

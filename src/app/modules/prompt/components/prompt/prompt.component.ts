@@ -62,7 +62,7 @@ export class PromptComponent implements OnInit, AfterViewInit {
           this.language.language(value);
           break;
         default:
-          this.terminal.sendResponse(command, `${command}: ${this.translate.instant('prompt.command_not_found')}`);
+          this.terminal.sendError(command, 'prompt.command_not_found');
           found = false;
           break;
       }
@@ -75,7 +75,7 @@ export class PromptComponent implements OnInit, AfterViewInit {
       const command = commands[index];
       this.terminal.sendCommand(command);
       if (index == 0) {
-        this.terminal.sendMessage(this.translate.instant('prompt.welcome_message'));
+        this.terminal.sendMessage('prompt.welcome_message');
       }
     }
   }

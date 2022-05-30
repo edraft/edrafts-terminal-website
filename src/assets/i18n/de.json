@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "command_not_found": "Befehl nicht gefunden",
+        "command_not_found": "{{command}}: Befehl nicht gefunden",
         "welcome_message": "Willkommen auf meinem web terminal.\nFür eine Liste von verfügbaren Befehlen, tippe 'help'.\n\n",
         "visitor": "besucher",
         "commands": {
