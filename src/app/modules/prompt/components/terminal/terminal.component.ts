@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TerminalContentElement } from '../../model/terminal-content-element';
+import { TerminalCommand } from '../../model/terminal-command';
 import { TerminalService } from '../../services/terminal.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class TerminalComponent implements OnInit {
     command: [''],
   });
 
-  terminalContent: TerminalContentElement[] = [];
+  terminalContent: TerminalCommand[] = [];
 
   constructor(
     private terminalService: TerminalService,
@@ -28,7 +28,7 @@ export class TerminalComponent implements OnInit {
   ngOnInit(): void {
     this.initCommandForm();
 
-    this.terminalService.terminalContent$.subscribe(terminalContent => {
+    this.terminalService.terminalHistory$.subscribe(terminalContent => {
       this.terminalContent = terminalContent
     });
   }
@@ -40,11 +40,11 @@ export class TerminalComponent implements OnInit {
   }
 
   submit(): void {
-    const value = this.commandForm.controls['command'].value;
-    if (value == "") {
+    let command: string = this.commandForm.controls['command'].value;
+    if (!command || command == "") {
       return;
     }
-    this.terminalService.sendCommand(value);
+    this.terminalService.sendCommand(command);
     this.commandForm.controls['command'].setValue('');
   }
 

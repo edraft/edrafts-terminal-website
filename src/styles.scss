@@ -27,6 +27,10 @@ h2 {
 }
 
 .prompt {
+    pre {
+        margin: 0;
+    }
+
     .p-terminal-prompt,
     .p-terminal-command,
     .p-terminal-response {

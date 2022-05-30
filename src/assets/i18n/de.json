@@ -26,7 +26,8 @@
             "language": {
                 "help": "Setzt die Sprache",
                 "missing_value": "Es muss eine Sprache gegeben werden!",
-                "not_found": "Die Sprache konnte nicht gefunden werden!"
+                "not_found": "Die Sprache konnte nicht gefunden werden!",
+                "switched": "Zur Sprache {{lang}} gewechselt"
             }
         }
     }

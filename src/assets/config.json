@@ -3,7 +3,8 @@
         "banner",
         "not-found",
         "help",
-        "language en"
+        "language en",
+        "history"
     ],
     "languages": [
         "de",

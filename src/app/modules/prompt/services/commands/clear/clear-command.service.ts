@@ -6,9 +6,11 @@ import { TerminalService } from '../../terminal.service';
 })
 export class ClearCommandService {
 
-  constructor(private terminalService: TerminalService) { }
+  constructor(
+    private terminal: TerminalService
+  ) { }
 
   clear() {
-    this.terminalService.clear();
+    this.terminal.clear();
   }
 }

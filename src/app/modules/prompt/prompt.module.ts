@@ -5,8 +5,11 @@ import { PromptComponent } from './components/prompt/prompt.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { AutoFocus } from './directives/auto-focus.directive';
 import { TerminalRoutingModule as PromptRoutingModule } from './prompt-routing.module';
-import { HelpCommandService } from './services/commands/help/help-command.service';
 import { ClickFocusDirective } from './directives/click-focus.directive';
+import { BannerComponent } from './components/commands/banner/banner.component';
+import { LanguageComponent } from './components/commands/language/language.component';
+import { HelpComponent } from './components/commands/help/help.component';
+import { HistoryComponent } from './components/commands/history/history.component';
 
 
 
@@ -16,6 +19,10 @@ import { ClickFocusDirective } from './directives/click-focus.directive';
     TerminalComponent,
     AutoFocus,
     ClickFocusDirective,
+    BannerComponent,
+    LanguageComponent,
+    HelpComponent,
+    HistoryComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +30,6 @@ import { ClickFocusDirective } from './directives/click-focus.directive';
     SharedModule
   ],
   providers: [
-    HelpCommandService
   ]
 })
 export class PromptModule { }

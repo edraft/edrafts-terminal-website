@@ -1,41 +1,41 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { TerminalContentElement as TerminalHistoryElement } from '../model/terminal-content-element';
+import { TerminalCommand } from '../model/terminal-command';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TerminalService {
 
-  commandHandler: EventEmitter<string> = new EventEmitter<string>();
-  terminalContent$: BehaviorSubject<TerminalHistoryElement[]> = new BehaviorSubject<TerminalHistoryElement[]>([]);
-  terminalHistory: string[] = [];
+  commandHandler: EventEmitter<TerminalCommand> = new EventEmitter<TerminalCommand>();
+  terminalHistory$: BehaviorSubject<TerminalCommand[]> = new BehaviorSubject<TerminalCommand[]>([]);
 
   constructor() { }
 
-  sendCommand(command: string) {
-    this.terminalHistory.push(command);
-    this.commandHandler.emit(command);
+  sendCommand(commandString: string) {
+    let command: string = commandString;
+    let values: string[] = [];
+
+    if (commandString.includes(' ')) {
+      command = commandString.split(' ')[0];
+      values = commandString.split(' ');
+      values.shift();
+    }
+
+    let commandModel = { command, values, response: '' };
+    this.terminalHistory$.value.push(commandModel);
+    this.commandHandler.emit(commandModel);
   }
 
   sendResponse(command: string, response: string) {
-    this.terminalContent$.value.push({command, response});
-  }
-
-  sendMessage(message: string) {
-    this.terminalContent$.value[this.terminalContent$.value.length - 1].message = message;
+    this.terminalHistory$.value.push({ command, values: [], response });
   }
 
   sendError(command: string, error: string) {
-    this.terminalContent$.value.push({command, response: '', errorMessage: error});
-  }
-
-  input(): string {
-    let selectedValue = '';
-    return selectedValue;
+    this.terminalHistory$.value.push({ command, values: [], response: error });
   }
 
   clear() {
-    this.terminalContent$.next([]);
+    this.terminalHistory$.next([]);
   }
 }

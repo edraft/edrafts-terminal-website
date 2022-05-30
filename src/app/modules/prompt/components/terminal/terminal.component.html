@@ -1,15 +1,16 @@
 <div class="terminal-wrapper" appClickFocus>
     <div class="terminal">
-        <ng-container *ngFor="let response of terminalContent">
+        <ng-container *ngFor="let command of terminalContent">
             <div class="prompt-wrapper">
                 <div class="prompt">
-                    <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>:<span class="path">{{path}}</span>$ {{response.command}}
+                    <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>:<span class="path">{{path}}</span>$ {{command.command}} {{command.values}}
                 </div>
             </div>
             <div class="response-wrapper">
-                <pre *ngIf="response.response" class="response" [innerHTML]="response.response | translate"></pre>
-                <pre *ngIf="response.message" class="response" [innerHTML]="response.message | translate"></pre>
-                <pre *ngIf="response.errorMessage" class="response error-message" [innerHTML]="response.errorMessage | translate: {command: response.command}"></pre>
+                <app-banner *ngIf="command.command === 'banner'" class="response"></app-banner>
+                <app-help *ngIf="command.command === 'help'" class="response"></app-help>
+                <app-history *ngIf="command.command === 'history'" class="response"></app-history>
+                <app-language *ngIf="command.command === 'language'" class="response" [values]="command.values"></app-language>
             </div>
         </ng-container>
 

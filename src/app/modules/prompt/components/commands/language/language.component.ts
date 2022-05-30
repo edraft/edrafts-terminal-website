@@ -1,35 +1,41 @@
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { TerminalService } from '../../terminal.service';
+import { TerminalService } from '../../../services/terminal.service';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-language',
+  templateUrl: './language.component.html',
+  styleUrls: ['./language.component.scss']
 })
-export class LanguageCommandService {
+export class LanguageComponent implements OnInit {
+
+  @Input() values: string[] = [];
+  lang: string = '';
 
   constructor(
-    private translate: TranslateService,
     private terminal: TerminalService,
+    private translate: TranslateService,
     private primeNGConfig: PrimeNGConfig
-  ) { }
+  ) {
+  }
 
-  language(language: string | null) {
-    if (!language) {
+  ngOnInit() {
+    if (this.values.length === 0) {
+      console.log('Error');
       this.terminal.sendError('language', this.translate.instant('prompt.commands.language.missing_value'));
       return;
     }
-    
+    let language = this.values[0];
+
     if (!this.translate.getLangs().includes(language)) {
+      console.log('Error');
       this.terminal.sendError('language', this.translate.instant('prompt.commands.language.not_found'));
       return;
     }
     this.translate.use(language);
     this.translate.get('primeng').subscribe(res => this.primeNGConfig.setTranslation(res));
-
-    let response = `
-    ${language}
-    `;
-    this.terminal.sendResponse(`language ${language}`, response);
+    this.lang = language;
   }
+
 }
