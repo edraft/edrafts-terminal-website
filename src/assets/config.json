@@ -5,11 +5,6 @@
         "welcome"
     ],
     "startupCommands": [
-        "not-found",
-        "help",
-        "history",
-        "language",
-        "language en"
     ],
     "languages": [
         "de",

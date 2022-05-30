@@ -26,6 +26,7 @@
                 .identifier {
                     height: 100%;
                     color: $importantTextColor;
+                    white-space: nowrap;
                 }
                 .path {
                     color: $secondaryTextColor;

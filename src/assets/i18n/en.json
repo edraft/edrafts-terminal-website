@@ -28,7 +28,11 @@
                 "not_found": "Language not found!",
                 "switched": "Generating locales (this might take a while)...\n{{lang}}.UTF-8... done\nGeneration complete."
             },
+            "uname": {
+                "help": "Displays the version"
+            },
             "welcome": {
+                "help": "Displays the welcome message",
                 "message": "Welcome to my web terminal.\nFor a list of available commands, type 'help'."
             }
         }
