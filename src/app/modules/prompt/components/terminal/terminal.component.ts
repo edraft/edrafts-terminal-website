@@ -11,7 +11,7 @@ import { TerminalService } from '../../services/terminal.service';
 export class TerminalComponent implements OnInit {
 
   @Input() welcomeMessage: string | undefined;
-  @Input() prompt: string | undefined;
+  @Input() host: string | undefined;
   @Input() path: string | undefined;
 
   commandForm: FormGroup = this.formBuilder.group({

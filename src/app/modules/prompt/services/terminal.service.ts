@@ -26,6 +26,15 @@ export class TerminalService {
     this.terminalContent$.value[this.terminalContent$.value.length - 1].message = message;
   }
 
+  sendError(command: string, error: string) {
+    this.terminalContent$.value.push({command, response: '', errorMessage: error});
+  }
+
+  input(): string {
+    let selectedValue = '';
+    return selectedValue;
+  }
+
   clear() {
     this.terminalContent$.next([]);
   }

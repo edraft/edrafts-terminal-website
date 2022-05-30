@@ -5,6 +5,7 @@ import { BannerCommandService } from '../../services/commands/banner/banner-comm
 import { ClearCommandService } from '../../services/commands/clear/clear-command.service';
 import { HelpCommandService } from '../../services/commands/help/help-command.service';
 import { HistoryCommandService } from '../../services/commands/history/history-command.service';
+import { LanguageCommandService } from '../../services/commands/language/language-command.service';
 import { TerminalService } from '../../services/terminal.service';
 
 @Component({
@@ -18,7 +19,7 @@ import { TerminalService } from '../../services/terminal.service';
 export class PromptComponent implements OnInit, AfterViewInit {
 
   welcomeMessage: string = '';
-  prompt: string = 'unkown';
+  host: string = 'localhost';
   path: string = '~';
   historyIndex = 0;
 
@@ -29,12 +30,20 @@ export class PromptComponent implements OnInit, AfterViewInit {
     private helpCommand: HelpCommandService,
     private clear: ClearCommandService,
     private banner: BannerCommandService,
-    private history: HistoryCommandService
+    private history: HistoryCommandService,
+    private language: LanguageCommandService
   ) { }
 
   ngOnInit(): void {
-    this.prompt = `${this.translate.instant('prompt.visitor')}@${this.config.getConfig().host}`;
-    this.terminal.commandHandler.subscribe(command => {
+    this.host = this.config.getConfig().host;
+    this.terminal.commandHandler.subscribe(user_input => {
+      let command = user_input;
+      let value = null;
+      if (user_input.includes(' ')) {
+        command = user_input.split(' ')[0];
+        value = user_input.split(' ')[1];
+      }
+
       let found = true;
       switch (command) {
         case 'banner':
@@ -46,9 +55,12 @@ export class PromptComponent implements OnInit, AfterViewInit {
         case 'help':
           this.helpCommand.help();
           break;
-          case 'history':
-            this.history.history();
-            break;
+        case 'history':
+          this.history.history();
+          break;
+        case 'language':
+          this.language.language(value);
+          break;
         default:
           this.terminal.sendResponse(command, `${command}: ${this.translate.instant('prompt.command_not_found')}`);
           found = false;
@@ -62,7 +74,9 @@ export class PromptComponent implements OnInit, AfterViewInit {
     for (let index = 0; index < commands.length; index++) {
       const command = commands[index];
       this.terminal.sendCommand(command);
-      this.terminal.sendMessage(this.translate.instant('prompt.welcome_message'));
+      if (index == 0) {
+        this.terminal.sendMessage(this.translate.instant('prompt.welcome_message'));
+      }
     }
   }
 

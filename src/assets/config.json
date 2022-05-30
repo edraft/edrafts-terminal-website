@@ -1,9 +1,14 @@
 {
     "startupCommands": [
-        "banner"
+        "banner",
+        "language de"
+    ],
+    "languages": [
+        "de",
+        "en"
     ],
     "host": "localhost",
-    "defaultLanguage": "de",
+    "defaultLanguage": "en",
     "birthdate": "14.10.2000",
     "gitea": "https://git.sh-edraft.de/edraft",
     "github": "https://github.com/edraft",

@@ -37,6 +37,10 @@
             .response {
                 color: $primaryTextColor;
             }
+
+            .error-message {
+                color: $primaryErrorColor !important;
+            }
         }
 
         .active-prompt {

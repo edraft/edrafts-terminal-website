@@ -3,18 +3,19 @@
         <ng-container *ngFor="let response of terminalContent">
             <div class="prompt-wrapper">
                 <div class="prompt">
-                    <span class="identifier">{{prompt}}</span>:<span class="path">{{path}}</span>$ {{response.command}}
+                    <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>:<span class="path">{{path}}</span>$ {{response.command}}
                 </div>
             </div>
             <div class="response-wrapper">
-                <pre class="response" [innerHTML]="response.response"></pre>
-                <pre class="response" [innerHTML]="response.message"></pre>
+                <pre *ngIf="response.response" class="response" [innerHTML]="response.response | translate"></pre>
+                <pre *ngIf="response.message" class="response" [innerHTML]="response.message | translate"></pre>
+                <pre *ngIf="response.errorMessage" class="response error-message" [innerHTML]="response.errorMessage | translate"></pre>
             </div>
         </ng-container>
 
         <div class="active-prompt prompt-wrapper">
             <div class="prompt">
-                <span class="identifier">{{prompt}}</span>:<span class="path">{{path}}</span>$
+                <span class="identifier">{{'prompt.visitor' | translate}}@{{host}}</span>:<span class="path">{{path}}</span>$
             </div>
             <div class="prompt-form">
                 <form [formGroup]="commandForm" (ngSubmit)="submit()">

@@ -1,7 +1,7 @@
 {
     "prompt": {
         "command_not_found": "Befehl nicht gefunden",
-        "welcome_message": "Willkommen auf meinem web terminal.\nFür eine Liste von verfügbaren Befehlen, tippe 'help'.",
+        "welcome_message": "Willkommen auf meinem web terminal.\nFür eine Liste von verfügbaren Befehlen, tippe 'help'.\n\n",
         "visitor": "besucher",
         "commands": {
             "banner": {
@@ -24,7 +24,9 @@
                 "help": "Gibt die Befehlshistorie wieder"
             },
             "language": {
-                "help": "Setzt die Sprache"
+                "help": "Setzt die Sprache",
+                "missing_value": "Es muss eine Sprache gegeben werden!",
+                "not_found": "Die Sprache konnte nicht gefunden werden!"
             }
         }
     }

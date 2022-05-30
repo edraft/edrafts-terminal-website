@@ -1,0 +1,33 @@
+{
+    "prompt": {
+        "command_not_found": "Command not found",
+        "welcome_message": "Welcome to my web terminal.\nFor a list of available commands, type 'help'.\n\n",
+        "visitor": "visitor",
+        "commands": {
+            "banner": {
+                "help": "Displays the banner",
+                "name": "Name",
+                "age": "Age",
+                "job": "Job",
+                "job_value": "Software developer",
+                "good": "Good",
+                "very_good": "Very good",
+                "bad": "Bad"
+            },
+            "clear": {
+                "help": "Clears the terminal for you"
+            },
+            "help": {
+                "help": "You can see what happends"
+            },
+            "history": {
+                "help": "Displays the command history"
+            },
+            "language": {
+                "help": "Change the language",
+                "missing_value": "Language must be given!",
+                "not_found": "Language not found!"
+            }
+        }
+    }
+}
