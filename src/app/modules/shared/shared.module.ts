@@ -12,6 +12,7 @@ import { TerminalModule, TerminalService } from 'primeng/terminal';
     CommonModule,
     TerminalModule,
     FormsModule,
+    TranslateModule,
     ReactiveFormsModule,
   ],
   exports: [

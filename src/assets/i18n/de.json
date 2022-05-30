@@ -27,7 +27,7 @@
                 "help": "Setzt die Sprache",
                 "missing_value": "Es muss eine Sprache gegeben werden!",
                 "not_found": "Die Sprache konnte nicht gefunden werden!",
-                "switched": "Zur Sprache {{lang}} gewechselt"
+                "switched": "Locales werden generiert (dies kann eine Weile dauern)...\n{{lang}}.UTF-8... fertig\nGenerierung abgeschlossen."
             }
         }
     }

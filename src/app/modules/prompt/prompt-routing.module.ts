@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PromptComponent } from './components/prompt/prompt.component';
+import { TerminalComponent } from './components/terminal/terminal.component';
 
 const routes: Routes = [
-  { path: '', component: PromptComponent },
+  { path: '', component: TerminalComponent },
 ];
 
 @NgModule({

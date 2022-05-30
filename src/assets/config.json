@@ -3,9 +3,9 @@
         "banner",
         "not-found",
         "help",
-        "language en",
         "history",
-        "language"
+        "language",
+        "language en"
     ],
     "languages": [
         "de",

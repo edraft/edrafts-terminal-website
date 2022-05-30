@@ -23,16 +23,11 @@ export class TerminalService {
     }
 
     let commandModel = { command, values, response: '' };
-    this.terminalHistory$.value.push(commandModel);
+    const list = Object.assign([], this.terminalHistory$.value);
+    list.push(commandModel);
+    console.log(list);
+    this.terminalHistory$.next(list);
     this.commandHandler.emit(commandModel);
-  }
-
-  sendResponse(command: string, response: string) {
-    this.terminalHistory$.value.push({ command, values: [], response });
-  }
-
-  sendError(command: string, error: string) {
-    this.terminalHistory$.value.push({ command, values: [], response: error });
   }
 
   clear() {
